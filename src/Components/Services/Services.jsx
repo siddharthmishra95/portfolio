@@ -4,9 +4,16 @@ import Card from "../Card/Card";
 import HeartEmoji from "../../img/heartemoji.png";
 import Glasses from "../../img/glasses.png";
 import Humble from "../../img/humble.png";
+import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
+import Resume from "./resume.pdf";
 
 const Services = () => {
+  // context
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
+
+  // transition
   const transition = {
     duration: 1,
     type: "spring",
@@ -17,14 +24,14 @@ const Services = () => {
       {/* left side */}
       <div className="awesome">
         {/* dark mode */}
-        <span>My Awesome</span>
+        <span style={{ color: darkMode ? "white" : "" }}>My Awesome</span>
         <span>services</span>
-        <span>
+        <spane>
           Lorem ispum is simpley dummy text of printing of printing Lorem
           <br />
           ispum is simpley dummy text of printing
-        </span>
-        <a href="" download>
+        </spane>
+        <a href={Resume} download>
           <button className="button s-button">Download CV</button>
         </a>
         <div className="blur s-blur1" style={{ background: "#ABF1FF94" }}></div>
